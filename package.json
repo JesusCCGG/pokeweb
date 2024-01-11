@@ -1,0 +1,16 @@
+{
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "express-jwt": "^8.4.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.6.5",
+    "nodemailer": "^6.9.7",
+    "nodemon": "^3.0.2",
+    "punycode": "^2.3.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon validar.js"
+  }
+}

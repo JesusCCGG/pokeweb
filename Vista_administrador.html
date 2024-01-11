@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista de Administrador</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #009688;
+        }
+
+        p {
+            color: #00796b;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bienvenido, Administrador</h1>
+    <p>Esta es la vista de administrador. Aquí puedes realizar tareas administrativas y gestionar usuarios.</p>
+</body>
+</html>
+<script>   const token = sessionStorage.getItem('token');
+    console.log('Token almacenado en sessionStorage:', token);
+
+    if (!token) {
+        console.log('No hay token, redirigiendo a la página de inicio de sesión');
+        window.location.href = '/';
+    } else {
+        console.log('Token presente, no se redirige');
+    }
+
+    const id_cargo = sessionStorage.getItem('id_cargo');
+    if (id_cargo!=1) {
+      window.location.href = '/';
+  }
+
+    </script>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
+    <link rel="stylesheet" href="/css/cabecera.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <style>
+        /* Oculta todos los formularios por defecto */
+        .formulario {
+            display: none;
+        }
+
+        /* Muestra el formulario activo */
+        .activo {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <form id="formulario1" class="formulario activo" action="/b" method="post">
+
+    <h1 class="animate__animated animate__backInLeft">Recuperar Contraseña</h1>
+
+    <p>Correo <input type="text" placeholder="ingrese su nombre" name="usuario"></p>
+
+    <input type="submit" value="Ingresar">
+
+    </form>
+    <form id="formulario2" class="formulario">
+        <h2>Formulario 3</h2>
+        
+        <p>Cosa <input type="text" placeholder="ingrese su nombre" name="usuario"></p>
+    
+        <input type="submit" value="Ingresar" onclick="mostrarFormulario('formulario2')">
+    </form>
+    <script>
+        function mostrarFormulario(idFormulario) {
+            // Oculta todos los formularios
+            const formularios = document.querySelectorAll('.formulario');
+            formularios.forEach(formulario => {
+                formulario.classList.remove('activo');
+            });
+
+            // Muestra el formulario deseado
+            const formularioActivo = document.getElementById(idFormulario);
+            formularioActivo.classList.add('activo');
+        }
+    </script>
+</body>
+</html>

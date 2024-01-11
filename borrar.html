@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mostrar/Ocultar Formularios</title>
+    <style>
+        /* Oculta todos los formularios por defecto */
+        .formulario {
+            display: none;
+        }
+
+        /* Muestra el formulario activo */
+        .activo {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <button onclick="mostrarFormulario('formulario1')">Mostrar Formulario 1</button>
+    <button onclick="mostrarFormulario('formulario2')">Mostrar Formulario 2</button>
+    <button onclick="mostrarFormulario('formulario3')">Mostrar Formulario 2</button>
+
+    <!-- Formulario 1 -->
+    <form id="formulario1" class="formulario activo">
+        <h2>Formulario 1</h2>
+      
+        <p>Correo <input type="text" placeholder="ingrese su nombre" name="usuario"></p>
+    
+        <input type="submit" value="Ingresar">
+    </form>
+
+    <!-- Formulario 2 -->
+    <form id="formulario2" class="formulario">
+        <h2>Formulario 2</h2>
+        
+        <p>Cosa <input type="text" placeholder="ingrese su nombre" name="usuario"></p>
+    
+        <input type="submit" value="Ingresar">
+    </form>
+
+      <!-- Formulario 3 -->
+      <form id="formulario3" class="formulario">
+        <h2>Formulario 3</h2>
+        
+        <p>Cosa <input type="text" placeholder="ingrese su nombre" name="usuario"></p>
+    
+        <input type="submit" value="Ingresar">
+    </form>
+    <script>
+        function mostrarFormulario(idFormulario) {
+            // Oculta todos los formularios
+            const formularios = document.querySelectorAll('.formulario');
+            formularios.forEach(formulario => {
+                formulario.classList.remove('activo');
+            });
+
+            // Muestra el formulario deseado
+            const formularioActivo = document.getElementById(idFormulario);
+            formularioActivo.classList.add('activo');
+        }
+    </script>
+
+</body>
+</html>
