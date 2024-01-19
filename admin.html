@@ -33,7 +33,7 @@
         }
     </style>
 
-    <div id="marca"><h1>Panel de Administrador</h1></div>
+    <h1>Panel de Administrador</h1>
     
     <!-- Lista de Usuarios -->
     <div class="nose"><h3>Lista de Usuarios</h3></div>
@@ -61,7 +61,7 @@
         
                     // Crear la fila de encabezado (thead)
                     const encabezado = document.createElement('thead');
-                    encabezado.innerHTML = '<tr><th>ID</th><th>Nombre</th><th>Correo</th><th>ID Cargo</th></tr>';
+                    encabezado.innerHTML = '<tr><th>ID</th><th>Nombre</th><th>Usuario</th><th>ID Cargo</th></tr>';
                     tablaUsuarios.appendChild(encabezado);
         
                     // Crear el cuerpo de la tabla (tbody)
@@ -78,8 +78,6 @@
                 })
                 .catch(error => console.error('Error al obtener usuarios:', error));
         }
-
-        // Mostrar la lista de usuarios al cargar la página
         window.onload = function () {
             mostrarUsuarios();
         };
@@ -100,6 +98,7 @@ const token = sessionStorage.getItem('token');
 
     const id_cargo = sessionStorage.getItem('id_cargo');
     if (id_cargo!=1) {
-    window.location.href = '/';
-}
-</script>
+      window.location.href = '/';
+  }
+
+    </script>

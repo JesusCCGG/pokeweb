@@ -68,10 +68,54 @@ app.post('/registro', async (req, res) => {
         if (userCount[0].count > 0) {
             // Si el usuario ya existe, enviar una respuesta indicando el problema
             res.write(`
-                    <script>
-                        window.location.href = '/registro.html';
-                        alert("Usuario ya existente");
-                    </script>
+            <!DOCTYPE html>
+            <html lang="es">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Registro Exitoso</title>
+                <style>
+                    body {
+                        font-family: 'Arial', sans-serif;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 100vh;
+                        background: url('IMG/Best Gengar Wallpaper.jpeg') no-repeat center center fixed;
+                        background-size: cover;
+                        margin: 0;
+                    }
+        
+                    .modal {
+                        background-color: rgba(255, 255, 255, 0.9); /* Fondo del modal */
+                        padding: 20px;
+                        border-radius: 10px;
+                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                    }
+        
+                    .close-btn {
+                        cursor: pointer;
+                        float: right;
+                        font-size: 20px;
+                        font-weight: bold;
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="modal">
+                    <span class="close-btn" onclick="cerrarModal()">×</span>
+                    <h1>Usuario Existente</h1>
+                    <p>¡Usuario Existente! Prueba otra vez.</p>
+                    <button onclick="cerrarModal()">Cerrar</button>
+                </div>
+        
+                <script>
+                    function cerrarModal() {
+                        window.location.href = '/index.html';
+                    }
+                </script>
+            </body>
+            </html>
                 `);
         } else {
             // Si el usuario no existe, realizar la inserción
@@ -79,11 +123,55 @@ app.post('/registro', async (req, res) => {
             await connection.execute(insertQuery, [nombre, usuario, contrasenia]);
             // Enviar una respuesta indicando que el registro fue exitoso
             res.write(`
-                    <script>
-                        window.location.href = '/index.html';
-                        alert("Registro exitoso");
-                    </script>
-                `);
+            <!DOCTYPE html>
+    <html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Registro Exitoso</title>
+        <style>
+            body {
+                font-family: 'Arial', sans-serif;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                background: url('IMG/Pokemon Collage - by Paul Arnold.jpeg') no-repeat center center fixed;
+                background-size: cover;
+                margin: 0;
+            }
+
+            .modal {
+                background-color: rgba(255, 255, 255, 0.9); /* Fondo del modal */
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            }
+
+            .close-btn {
+                cursor: pointer;
+                float: right;
+                font-size: 20px;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="modal">
+            <span class="close-btn" onclick="cerrarModal()">×</span>
+            <h1>Registro exitoso</h1>
+            <p>Tu registro ha sido completado con éxito.</p>
+            <button onclick="cerrarModal()">Cerrar</button>
+        </div>
+
+        <script>
+            function cerrarModal() {
+                window.location.href = '/index.html';
+            }
+        </script>
+    </body>
+    </html>
+        `);
         }
     } catch (error) {
         console.error('Error en el registro: ', error);
@@ -136,10 +224,54 @@ app.post('/a', async (req, res) => {
             // Usuario o contraseña incorrectos
             res.sendFile(__dirname + '/index.html');
             res.write(`
-                    <script>
+            <!DOCTYPE html>
+            <html lang="es">
+            <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Usuario o Contraseña Incorrectos</title>
+                <style>
+                    body {
+                        font-family: 'Arial', sans-serif;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        height: 100vh;
+                        background: url('IMG/descarga (2).jpeg') no-repeat center center fixed;
+                        background-size: cover;
+                        margin: 0;
+                    }
+        
+                    .modal {
+                        background-color: rgba(255, 255, 255, 0.9); /* Fondo del modal */
+                        padding: 20px;
+                        border-radius: 10px;
+                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                    }
+        
+                    .close-btn {
+                        cursor: pointer;
+                        float: right;
+                        font-size: 20px;
+                        font-weight: bold;
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="modal">
+                    <span class="close-btn" onclick="cerrarModal()">×</span>
+                    <h1>Usuario o Contraseña incorrectos</h1>
+                    <p>Prueba otra vez</p>
+                    <button onclick="cerrarModal()">Cerrar</button>
+                </div>
+        
+                <script>
+                    function cerrarModal() {
                         window.location.href = '/index.html';
-                        alert("Usuario y contraseña incorrectos");
-                    </script>
+                    }
+                </script>
+            </body>
+            </html>
                 `);
         }
 
@@ -168,10 +300,10 @@ generarToken = (usuario, id_cargo) => {
     return token;
 }
 
-            
-const nodemailer = require('nodemailer'); //mandamos a llamar la libreria
-// Dependencias y configuraciones previas...
-// 
+const nodemailer = require('nodemailer');
+
+// ... Resto del código ...
+
 app.post('/b', async (req, res) => {
     const usuario = req.body.usuario;
 
@@ -184,19 +316,58 @@ app.post('/b', async (req, res) => {
         if (results.length > 0) {
             // Usuario encontrado
             await codigoRecuperacionf(usuario, connection);
-            res.sendFile(__dirname + '/index.html');
-            res.write("<h1 class='bad'>Codigo de recuperacion enviado</h1> " + usuario);
+
+            // Cambia la respuesta para incluir el fondo deseado
+            res.write(`
+                <!DOCTYPE html>
+                <html lang="es">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Código de Recuperación Enviado</title>
+                    <style>
+                        body {
+                            font-family: 'Arial', sans-serif;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            height: 100vh;
+                            background: url('IMG/Cute.jpeg') no-repeat center center fixed;
+                            background-size: cover;
+                            margin: 0;
+                        }
+
+                        .modal {
+                            background-color: rgba(255, 255, 255, 0.9);
+                            padding: 20px;
+                            border-radius: 10px;
+                            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                        }
+
+                        .close-btn {
+                            cursor: pointer;
+                            float: right;
+                            font-size: 20px;
+                            font-weight: bold;
+                        }
+                    </style>
+                </head>
+                <body>
+                    <div class="modal">
+                        <h1 class='bad'>Código de recuperación enviado</h1>
+                        <form action="/validar-codigo" method="post">
+                            <label for="codigo">Ingresa el código de recuperación:</label>
+                            <input type="text" id="codigo" name="codigo" required>
+                            <input type="hidden" name="usuario" value="${usuario}">
+                            <input type="submit" value="Validar">
+                        </form>
+                    </div>
+                </body>
+                </html>
+            `);
 
             // Suponiendo que enviarMail es una función definida en otro lugar
             enviarMail(usuario);
-            res.write(`
-            <form action="/validar-codigo" method="post">
-                <label for="codigo">Ingresa el de recuperacion:</label>
-                <input type="text" id="codigo" name="codigo" required>
-                <input type="hidden" name="usuario" value="${usuario}">
-                <input type="submit" value="Validar">
-            </form>
-        `);
         } else {
             // Usuario no encontrado
             res.sendFile(__dirname + '/index.html');
@@ -211,8 +382,11 @@ app.post('/b', async (req, res) => {
             connection.end();
         }
     }
+
     res.end();
 });
+
+
 let codigoRecuperacion;
 async function codigoRecuperacionf(usuario, connection) {
     codigoRecuperacion = Math.floor(Math.random() * (9999 - 1000 + 1)) + 1000;
@@ -452,4 +626,3 @@ app.post('/validar-codigo', async (req, res) => {
 
 });
 //CAMBIAR CONTRASEÑA
-

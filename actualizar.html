@@ -50,8 +50,26 @@
         <br>
         <input type="submit" value="Agregar Usuario" onclick="actualizarUsuario()">
         <br>
-        <p><a href="admin.html">Regresar</a></p>
+        <style>
+            .button-link {
+                display: inline-block;
+                padding: 10px 20px;
+                background-color: #4CAF50; /* Color de fondo del botón */
+                color: white; /* Color del texto del botón */
+                text-decoration: none;
+                border-radius: 5px; /* Bordes redondeados */
+                transition: background-color 0.3s; /* Transición al pasar el mouse */
+            }
+        
+            .button-link:hover {
+                background-color: #45a049; /* Cambia el color de fondo al pasar el mouse */
+            }
+        </style>
+        
+        <p><a class="button-link" href="admin.html">Regresar</a></p>
+        
     </form>
+
     <script>
         function actualizarUsuario() {
             const id = document.getElementById('id_actualizar').value;
