@@ -30,7 +30,7 @@ header a {
 }
 
 .login-box {
-    background-image: url("../img/logogae.png");
+    background-image: url("/img/logogae.png");
     width: 100px;
     height: 100px;
     border-radius: 50%;
