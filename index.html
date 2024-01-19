@@ -13,9 +13,9 @@
 
     <h1 class="animate__animated animate__backInLeft">Sistema de login</h1>
 
-    <p>Correo <input type="text" placeholder="ingrese su nombre" name="usuario"></p>
+    <p>Correo <input type="email" placeholder="Ingresa su correo electronico" name="usuario" required></p>
 
-    <p>Contraseña <input type="password" placeholder="ingrese su contraseña" name="contrasenia"></p>
+    <p>Contraseña <input type="password" placeholder="Ingrese su contraseña" name="contrasenia" minlength="4" pattern="^(?=.[a-z])(?=.[A-Z])(?=.[!@#$%^&()_+{}\[\]:;<>,.?~\\/-])" required></p>
     <p><a href="registro.html">¿No tienes una cuenta? Regístrate aquí</a></p>
         <a href="recuperar.html">Recuperar Contraseña</a>
 

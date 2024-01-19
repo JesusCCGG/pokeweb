@@ -16,7 +16,7 @@
             font-family: 'Roboto', sans-serif; /* Agrega la fuente que prefieras */
         }
 
-        #saveSelection,
+       
         #loadSelection {
             position: fixed;
             bottom: 20px;
@@ -31,8 +31,26 @@
             transition: background-color 0.3s ease;
         }
 
-        #saveSelection:hover,
+     
         #loadSelection:hover {
+            background-color: #0056b3;
+        }
+        #saveSelection {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            margin: 10px;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+     
+        #saveSelection:hover {
             background-color: #0056b3;
         }
     </style>
@@ -52,8 +70,9 @@
     </div>
 
     <button id="saveSelection">Guardar Selección</button>
-    <button id="loadSelection">Cargar Selecciones</button>
-
+   
+    <button id="loadSelection"">Cargar Selecciones</button>
+    <br><br><br><br><br>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
