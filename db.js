@@ -23,14 +23,22 @@
 //   connection.end();
 // });
 // db.js
-const mysql = require('mysql2/promise');
+const mysql = require('mysql2/promise'); // Importar mysql2 con soporte de promesas
 
 const dbConfig = {
     host: 'roundhouse.proxy.rlwy.net',
     user: 'root',
     password: 'c21HBC1HeCBB6gGacD21E21df4H-FHga',
     port: 37812,
-    database: 'railway'
+    database: 'railway',
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
+    //   host: 'localhost',
+    // user: 'root',
+    // password: '123456',
+    // port: 3306,
+    // database: 'rol'
 };
 
 async function getConnection() {

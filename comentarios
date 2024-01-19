@@ -1,0 +1,24 @@
+        //  const token = generarToken(usuario, id_cargo);
+
+            // if (id_cargo == 1) {
+            //     // Administrador
+            //     res.write(`
+            //     <script>
+            //         sessionStorage.setItem('token', "${token}");
+            //         sessionStorage.setItem('id_cargo', ${id_cargo});
+            //     </script>
+            // `);
+            // res.sendFile(__dirname + '/Vista_administrador.html');
+            // } else if (id_cargo == 2) {
+            //     // Cliente
+                
+            //     res.write(`
+            //     <script>
+            //         sessionStorage.setItem('token', "${token}");
+            //         sessionStorage.setItem('id_cargo', ${id_cargo});
+            //     </script>`);
+            // } else {
+            //     // Otro cargo no identificado
+            //     res.sendFile(__dirname + '/index.html');
+            //     res.write("<h1 class='bad'>Acceso no autorizado</h1>");
+            // }

@@ -8,6 +8,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
+    <link rel="stylesheet" href="/css/cabecera.css">
+    <link rel="stylesheet" href="/css/login.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
@@ -15,59 +19,87 @@
     </style>
 </head>
 
-<body class="bg-gray-200">
-    <div class="container mx-auto mt-10">
-        <div class="bg-white shadow-md rounded my-6">
-            <table class="text-left w-full border-collapse">
-                <thead>
-                    <tr>
-                        <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Id</th>
-                        <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Nombre</th>
-                        <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Usuario</th>
-                        <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Contraseña</th>
-                        <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Id_Cargo</th>
-                        <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Editar</th>
-                        <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Eliminar</th>
-                    </tr>
+<body>
+    <style>
+        body {
+            background-color: cornflowerblue;
+        }
+        table thead {
+            background: #302b63;
+            color: black;
+        }
+        .container {
+            margin-top: 30px;
+        }
+    </style>
+
+    <div id="marca"><h1>Panel de Administrador</h1></div>
+    
+    <!-- Lista de Usuarios -->
+    <div class="nose"><h3>Lista de Usuarios</h3></div>
+    <div id="LinkAdmin"><p><a href="agregar.html">Agregar Usuario</a> | <a href="actualizar.html">Actualizar Usuario</a>  | <a href="eliminar.html">Eliminar Usuario</a></p></div>
+    <br>
+    <div class="container shadow-lg p-3 mb-5 bg-body rounded">
+            <thead>
                 </thead>
-                <tbody>
-                    <!-- Repeat for each row -->
-                    <tr class="hover:bg-grey-lighter">
-                        <td class="py-4 px-6 border-b border-grey-light">1</td>
-                        <td class="py-4 px-6 border-b border-grey-light">jwicale</td>
-                        <td class="py-4 px-6 border-b border-grey-light">zdkgdvp@yopmail.com</td>
-                        <td class="py-4 px-6 border-b border-grey-light">7097</td>
-                        <td class="py-4 px-6 border-b border-grey-light">1</td>
-                        <td class="py-4 px-6 border-b border-grey-light">
-                            <button onclick="editRecord(1)"><i class="fas fa-pencil-alt"></i></button>
-                        </td>
-                        <td class="py-4 px-6 border-b border-grey-light">
-                            <button onclick="deleteRecord(1)"><i class="fas fa-trash"></i></button>
-                        </td>
-                    </tr>
-                    <!-- Repeat for the rest of the rows -->
+                <tbody id="tabla-usuarios-body">
+                    <table class="table table-bordered table-striped" id="tabla-usuarios"></table>
                 </tbody>
-            </table>
         </div>
-    </div>
 
     <script>
-        // Function to simulate editing a record
-        function editRecord(id) {
-            alert('Edit function called for record id: ' + id);
-            // Here you would have logic to open an edit form or modal
+        // Función para obtener y mostrar la lista de usuarios
+
+        function mostrarUsuarios() {
+            fetch('http://localhost:3000/api/usuarios')
+                .then(response => response.json())
+                .then(data => {
+                    const tablaUsuarios = document.getElementById('tabla-usuarios');
+        
+                    // Limpiar contenido existente
+                    tablaUsuarios.innerHTML = '';
+        
+                    // Crear la fila de encabezado (thead)
+                    const encabezado = document.createElement('thead');
+                    encabezado.innerHTML = '<tr><th>ID</th><th>Nombre</th><th>Correo</th><th>ID Cargo</th></tr>';
+                    tablaUsuarios.appendChild(encabezado);
+        
+                    // Crear el cuerpo de la tabla (tbody)
+                    const cuerpoTabla = document.createElement('tbody');
+        
+                    // Llenar la tabla con datos
+                    data.forEach(usuario => {
+                        const fila = document.createElement('tr');
+                        fila.innerHTML = `<td>${usuario.id}</td><td>${usuario.nombre}</td><td>${usuario.usuario}</td><td>${usuario.id_cargo}</td>`;
+                        cuerpoTabla.appendChild(fila);
+                    });
+        
+                    tablaUsuarios.appendChild(cuerpoTabla);
+                })
+                .catch(error => console.error('Error al obtener usuarios:', error));
         }
 
-        // Function to simulate deleting a record
-        function deleteRecord(id) {
-            const confirmation = confirm('Are you sure you want to delete record id: ' + id + '?');
-            if (confirmation) {
-                // Logic to delete the record goes here
-                // For example, removing the row from the table or making an API call to delete from the database
-                alert('Record id: ' + id + ' has been deleted');
-            }
-        }
+        // Mostrar la lista de usuarios al cargar la página
+        window.onload = function () {
+            mostrarUsuarios();
+        };
     </script>
 </body>
 
 </html>
+<script>
+const token = sessionStorage.getItem('token');
+    console.log('Token almacenado en sessionStorage:', token);
+
+    if (!token) {
+        console.log('No hay token, redirigiendo a la página de inicio de sesión');
+        window.location.href = '/';
+    } else {
+        console.log('Token presente, no se redirige');
+    }
+
+    const id_cargo = sessionStorage.getItem('id_cargo');
+    if (id_cargo!=1) {
+    window.location.href = '/';
+}
+</script>

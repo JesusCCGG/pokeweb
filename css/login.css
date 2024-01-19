@@ -16,7 +16,21 @@ body {
 form {
     padding: 5% 2%;
     background-color: #381b1ba6;
-    margin: 20% auto;
+    margin: 10% auto;
+    border-radius: 10px;
+    max-width: 400px; /* Ancho máximo */
+}
+
+h2 {
+    text-align: center;
+    padding: 12px;
+    color: rgb(206, 203, 203);
+}
+
+.formulario-agregar, .formulario-actualizar, .formulario-eliminar{
+    padding: 1% 1%;
+    background-color: #381b1ba6;
+    margin: 10px 10px;
     border-radius: 10px;
     max-width: 400px; /* Ancho máximo */
 }
@@ -78,4 +92,28 @@ h6 {
     padding: 12px;
     color: rgb(206, 203, 203);
     line-height: 20px;
+}
+
+#tabla-usuarios th, #tabla-usuarios td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    color: black; 
+}
+
+.nose{
+    font-size: 100px;
+    background-color: rgba(216, 101, 101, 0.667);
+}
+
+h3{
+    color: rgb(0, 0, 0);
+}
+
+#LinkAdmin{
+    background-color: rgba(68, 136, 238, 0.533);
+}
+
+#marca{
+    background-color: rgba(216, 101, 101, 0.667);
 }

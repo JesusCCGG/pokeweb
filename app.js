@@ -26,7 +26,7 @@
 const marvel = {
   selectedHeroes: new Set(),
   render: function() {
-      const urlAPI = 'https://gateway.marvel.com:443/v1/public/characters?ts=1&100&apikey=66871a4efa9fb001fd69fe57f6b84ffc&hash=3d44a2a8f21791dc555a103aa393bb57';
+      const urlAPI = 'https://gateway.marvel.com:443/v1/public/characters?ts=1&limit=100&apikey=66871a4efa9fb001fd69fe57f6b84ffc&hash=3d44a2a8f21791dc555a103aa393bb57';
       const container = document.querySelector('#marvel-row');
       let contentHTML = '';
 
@@ -127,19 +127,6 @@ updateTotal: function() {
     document.querySelector('#loadSelection').addEventListener('click', () => this.loadSelection());
 }
 };
-
-app.get('/data', async (req, res) => {
-    try {
-        const connection = await getConnection();
-        const [rows] = await connection.execute('SELECT * FROM usuarios');
-        connection.end();
-
-        res.json(rows);
-    } catch (error) {
-        console.error(error);
-        res.status(500).send('Error al obtener los datos');
-    }
-});
 
 
 
