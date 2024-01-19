@@ -45,3 +45,21 @@ header a {
     }
 }
 
+.selected {
+    border: 2px solid red;
+}
+#marvel-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.hero {
+    flex-basis: calc(25% - 20px); /* Ajusta el 33% para tres columnas y resta algo de espacio para el margen */
+    margin: 10px;
+    box-sizing: border-box;
+}
+
+.selected {
+    border: 2px solid red;
+}

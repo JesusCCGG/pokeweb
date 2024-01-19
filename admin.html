@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-200">
+    <div class="container mx-auto mt-10">
+        <div class="bg-white shadow-md rounded my-6">
+            <table class="text-left w-full border-collapse">
+                <thead>
+                    <tr>
+                        <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Id</th>
+                        <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Nombre</th>
+                        <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Usuario</th>
+                        <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Contraseña</th>
+                        <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Id_Cargo</th>
+                        <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Editar</th>
+                        <th class="py-4 px-6 bg-grey-lightest font-bold uppercase text-sm text-grey-dark border-b border-grey-light">Eliminar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Repeat for each row -->
+                    <tr class="hover:bg-grey-lighter">
+                        <td class="py-4 px-6 border-b border-grey-light">1</td>
+                        <td class="py-4 px-6 border-b border-grey-light">jwicale</td>
+                        <td class="py-4 px-6 border-b border-grey-light">zdkgdvp@yopmail.com</td>
+                        <td class="py-4 px-6 border-b border-grey-light">7097</td>
+                        <td class="py-4 px-6 border-b border-grey-light">1</td>
+                        <td class="py-4 px-6 border-b border-grey-light">
+                            <button onclick="editRecord(1)"><i class="fas fa-pencil-alt"></i></button>
+                        </td>
+                        <td class="py-4 px-6 border-b border-grey-light">
+                            <button onclick="deleteRecord(1)"><i class="fas fa-trash"></i></button>
+                        </td>
+                    </tr>
+                    <!-- Repeat for the rest of the rows -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        // Function to simulate editing a record
+        function editRecord(id) {
+            alert('Edit function called for record id: ' + id);
+            // Here you would have logic to open an edit form or modal
+        }
+
+        // Function to simulate deleting a record
+        function deleteRecord(id) {
+            const confirmation = confirm('Are you sure you want to delete record id: ' + id + '?');
+            if (confirmation) {
+                // Logic to delete the record goes here
+                // For example, removing the row from the table or making an API call to delete from the database
+                alert('Record id: ' + id + ' has been deleted');
+            }
+        }
+    </script>
+</body>
+
+</html>

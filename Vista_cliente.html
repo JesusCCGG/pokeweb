@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -15,11 +16,21 @@
   <nav class="navbar navbar-dark bg-dark">
     <a href="/" class="navbar-brand">Marvel APP</a>
   </nav>
+  <div id="contador">Personajes seleccionados: 0</div>
+
+  <div id="totalCarrito">Total del Carrito: $0</div>
+
+
   <div class="container">
     <div class="row" id="marvel-row">
+   
+    </div>   <button id="saveSelection">Guardar Selección</button>
+    <button id="loadSelection">Cargar Selecciones</button>
 
-    </div>
+
   </div>
+ 
+
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
     crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
@@ -31,6 +42,7 @@
 
 </html>
 <script>   const token = sessionStorage.getItem('token');
+
   console.log('Token almacenado en sessionStorage:', token);
 
   if (!token) {
@@ -44,5 +56,6 @@
   if (id_cargo!=2) {
       window.location.href = '/';
   }
+  sessionStorage.setItem('sessionId', sessionId);
 
   </script>

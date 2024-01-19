@@ -23,9 +23,48 @@
 <body>
     <h1>Bienvenido, Administrador</h1>
     <p>Esta es la vista de administrador. Aquí puedes realizar tareas administrativas y gestionar usuarios.</p>
+    <div id="userList">
+        <!-- Lista de usuarios se mostrará aquí -->
+    </div>
 </body>
 </html>
-<script>   const token = sessionStorage.getItem('token');
+<script>   
+$(document).ready(function () {
+    // Obtener la lista de usuarios al cargar la página
+    getUserList();
+
+    // Función para obtener la lista de usuarios
+    function getUserList() {
+        $.ajax({
+            url: 'get_user_list.php', // Reemplaza con la ruta correcta
+            type: 'GET',
+            success: function (data) {
+                $('#userList').html(data);
+            }
+        });
+    }
+
+    // Función para eliminar un usuario
+    function deleteUser(userId) {
+        $.ajax({
+            url: 'delete_user.php?id=' + userId, // Reemplaza con la ruta correcta
+            type: 'GET',
+            success: function (data) {
+                alert(data); // Muestra un mensaje (puedes hacer algo más sofisticado)
+                getUserList(); // Actualiza la lista de usuarios después de la eliminación
+            }
+        });
+    }
+
+    // Evento clic para eliminar un usuario
+    $('#userList').on('click', '.deleteUser', function () {
+        var userId = $(this).data('id');
+        deleteUser(userId);
+    });
+});
+
+
+const token = sessionStorage.getItem('token');
     console.log('Token almacenado en sessionStorage:', token);
 
     if (!token) {

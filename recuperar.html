@@ -20,22 +20,25 @@
     </style>
 </head>
 <body>
+    // onsubmit="return mostrarFormulario('formulario2')"
     <form id="formulario1" class="formulario activo" action="/b" method="post">
 
     <h1 class="animate__animated animate__backInLeft">Recuperar Contraseña</h1>
 
-    <p>Correo <input type="text" placeholder="ingrese su nombre" name="usuario"></p>
+    <p>Correo <input type="text" placeholder="Ingrese su nombre" name="usuario"></p>
 
     <input type="submit" value="Ingresar">
 
     </form>
+
     <form id="formulario2" class="formulario">
         <h2>Formulario 3</h2>
         
-        <p>Cosa <input type="text" placeholder="ingrese su nombre" name="usuario"></p>
+        <p>Cosa <input type="text" placeholder="Ingrese su nombre" name="usuario"></p>
     
-        <input type="submit" value="Ingresar" onclick="mostrarFormulario('formulario2')">
+        <input type="button" value="Mostrar Formulario 2" onclick="mostrarFormulario('formulario2')">
     </form>
+    
     <script>
         function mostrarFormulario(idFormulario) {
             // Oculta todos los formularios
@@ -47,6 +50,9 @@
             // Muestra el formulario deseado
             const formularioActivo = document.getElementById(idFormulario);
             formularioActivo.classList.add('activo');
+
+            // Evita que el formulario1 se envíe
+            return false;
         }
     </script>
 </body>
