@@ -55,7 +55,7 @@
         // Función para obtener y mostrar la lista de usuarios
 
         function mostrarUsuarios() {
-            fetch('http://localhost:3000/api/usuarios')
+            fetch('https://pokeweb-7qzu.onrender.com/api/usuarios')
                 .then(response => response.json())
                 .then(data => {
                     const tablaUsuarios = document.getElementById('tabla-usuarios');
